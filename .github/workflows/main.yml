@@ -39,7 +39,7 @@ jobs:
     - name: Upload NuGet package to GitHub
       uses: actions/upload-artifact@v2
       with:
-        name: nugetPackage
+        name: *.nupkg
         path: bin/Release/ 
         
   release:
@@ -54,7 +54,7 @@ jobs:
       with:
         name: nugetPackage
     - name: Prep packages
-      run: dotnet nuget add source --username yourusername --password ${{ secrets.PAQUETES_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Drojascode/index.json"
+      run: dotnet nuget add source --username Drojascode --password ${{ secrets.PAQUETES_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Drojascode/index.json"
     - name: Push package to GitHub packages 
       if: needs.build.outputs.CommitsSinceVersionSource > 0 #Only release if there has been a commit/version change  
       run: dotnet nuget push nugetPackage/*.nupkg --api-key ${{ secrets.PAQUETES_TOKEN }}  --source "github"
