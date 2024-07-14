@@ -27,7 +27,7 @@ jobs:
       run: dotnet build --no-restore
       working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
     - name: Pack      
-      run: dotnet pack --output ${{env.NuGetDirectory}}
+      run: dotnet pack
       working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
       
     - uses: actions/upload-artifact@v3
@@ -35,5 +35,5 @@ jobs:
         name: nuget
         if-no-files-found: error
         retention-days: 7
-        path: ${{ env.NuGetDirectory }}/*.nupkg
+        path: /*.nupkg
 
