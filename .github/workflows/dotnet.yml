@@ -51,7 +51,7 @@ jobs:
       run: ls -R
       
     - name: Prep packages
-      run: dotnet nuget add source -name "paquetes" --username Drojascode --password ${{ secrets.PAQUETES_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Drojascode/index.json"
+      run: dotnet nuget add source --username Drojascode --password ${{ secrets.PAQUETES_TOKEN }} --store-password-in-clear-text --name paquetes "https://nuget.pkg.github.com/Drojascode/index.json"
     - name: Push package to GitHub packages 
       run: dotnet nuget push Autorizacion/*.nupkg --api-key ${{ secrets.PAQUETES_TOKEN }}  --source "paquetes"
     
