@@ -41,11 +41,15 @@ jobs:
     runs-on: ubuntu-latest    
     needs: build
     steps:  
-    #Push NuGet package to GitHub packages
-    - name: Download nuget package artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: Autorizacion        
+    - name: Checkout 
+      uses: actions/checkout@v3
+    
+    - name: Downlod Artifacts 
+      uses: actions/download-artifact@v3
+    
+    - name: List Files
+      run: ls -R
+      
     - name: Prep packages
       run: dotnet nuget add source --username Drojascode --password ${{ secrets.PAQUETES_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Drojascode/index.json"
     - name: Push package to GitHub packages 
