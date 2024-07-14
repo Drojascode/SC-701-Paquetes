@@ -46,6 +46,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: nuget
+        path: /home/runner/work/SC-701-Paquetes/SC-701-Paquetes/AutorizacionMiddleware/Autorizacion.Middleware/bin/Release/*.nupkg
     - name: Prep packages
       run: dotnet nuget add source --username Drojascode --password ${{ secrets.PAQUETES_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Drojascode/index.json"
     - name: Push package to GitHub packages 
