@@ -36,7 +36,7 @@ jobs:
         with:
           dotnet-version: 6.0.x
       - name: Build and Pack NuGet package
-        run: dotnet pack calculator-nuget-demo.csproj -p:Version='${{ steps.gitversion.outputs.SemVer }}' -c Release
+        run: dotnet pack AutorizacionMiddleware/Autorizacion.Middleware/Autorizacion.Middleware.csproj -p:Version='${{ steps.gitversion.outputs.SemVer }}' -c Release
       - name: Upload NuGet package to GitHub
         uses: actions/upload-artifact@v2
         with:
