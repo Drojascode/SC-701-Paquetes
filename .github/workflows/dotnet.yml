@@ -21,8 +21,12 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore AutorizacionMiddleware/Autorizacion.Middleware
+      run: dotnet restore
+      working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
     - name: Build
-      run: dotnet build AutorizacionMiddleware/Autorizacion.Middleware --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build --no-restore
+      working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
+    - name: Pack      
+      run: dotnet pack
+      working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
+
