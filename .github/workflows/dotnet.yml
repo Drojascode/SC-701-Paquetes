@@ -35,5 +35,5 @@ jobs:
         name: nuget
         if-no-files-found: error
         retention-days: 7
-        path: /*.nupkg
+        path: /home/runner/work/SC-701-Paquetes/SC-701-Paquetes/AutorizacionMiddleware/Autorizacion.Middleware/bin/Release/*.nupkg
 
