@@ -5,6 +5,7 @@
     <RootNamespace>calculator_nuget_demo</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyVersion>1.1.*</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
