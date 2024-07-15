@@ -22,13 +22,13 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
+      working-directory: ./AutorizacionMiddleware
     - name: Build
       run: dotnet build --no-restore
-      working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
+      working-directory: ./AutorizacionMiddleware
     - name: Pack      
       run: dotnet pack
-      working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
+      working-directory: ./AutorizacionMiddleware
       
     - uses: actions/upload-artifact@v3
       with:
